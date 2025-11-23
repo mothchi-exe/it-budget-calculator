@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Certification Budget Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>IT Certification Budget Planner</h1>
+        <p>Select the certifications you plan to persue to calculate the estimated cost. This list is solely the cost of VOUCHERS, not study material! These are primarily CompTIA certifications with the exception of other valuable credentials. You can select multiple!</p>
+        <div id="cert-list">
+            <div class="cert-item">
+                <input type="checkbox" id="a_plus" value="comptia_a_plus">
+                <label for="a_plus">CompTIA A+ (Core 1 & 2) - Approx. $530</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="sec_plus" value="comptia_security_plus">
+                <label for="sec_plus">CompTIA Security+ - Approx. $425</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="net_plus" value="comptia_network_plus">
+                <label for="net_plus">CompTIA Network+ - Approx. $390</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="data_plus" value="comptia_data_plus">
+                <label for="data_plus">CompTIA Data+ - Approx. $255</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="project_plus" value="comptia_project_plus">
+                <label for="project_plus">CompTIA Project+ - Approx. $390</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="cloud_plus" value="comptia_cloud_plus">
+                <label for="cloud_plus">CompTIA Cloud+ - Approx. $390</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="pentest_plus" value="comptia_pentest_plus">
+                <label for="pentest_plus">CompTIA PenTest+ - Approx. $425</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="tech_plus" value="comptia_tech_plus">
+                <label for="tech_plus">CompTIA Tech+ - Approx. $125</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="linux_plus" value="comptia_linux_plus">
+                <label for="linux_plus">CompTIA Linux+ - Approx. $390</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="cysa_plus" value="comptia_cysa_plus">
+                <label for="linux_plus">CompTIA CySA+ - Approx. $425</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="aws_ccp" value="aws_cloud_practitioner">
+                <label for="aws_ccp">AWS Certified Cloud Practitioner - Approx. $100</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="ms_azure" value="microsoft_azure_fundamentals">
+                <label for="ms_azure">Microsoft Certified: Azure Fundamentals - Approx. $99</label>
+            </div>
+
+            <div class="cert-item">
+                <input type="checkbox" id="ccst" value="ccst_it_support">
+                <label for="ccst">Cisco Certified Support Technician (CCST) - Approx. $125</label>
+            </div>
+
+            </div>
+
+        <button id="calculate-btn">Calculate Total Budget</button>
+
+        <div id="total-cost-container">
+            <h2>Total Estimated Cost:</h2>
+            <span id="total-cost">$0.00</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
