@@ -1,66 +1,248 @@
+:root {
+    --highlight-green: #10b981;
+    --red-500: #ef4444;
+    --red-600: #dc2626;
+    --gray-200: #e5e7eb;
+    --gray-700: #374151;
+    --blue-100: #dbeafe;
+    
+    --main-bg: #c8dbef;
+    --card-bg: #f7fbff;
+    --primary-btn: #2171b5;
+    --primary-btn-hover: #08519c;
+    --result-border: #deebf7;
+    --result-text: #08306b;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    background-color: #c8dbef;
+    background-color: var(--main-bg);
+    
+    min-height: 100vh;
     padding: 20px;
 }
 
 .container {
+    width: 100%;
     max-width: 600px;
-    margin: 40px auto;
-    background: #f7fbff;
+    margin: 40px auto; 
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-h1 {
+header h1 {
     color: #020202; 
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.8em; 
+}
+
+header p {
+    color: #6b7280;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+h2 {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: var(--gray-700);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.25rem;
+}
+
+.cert-list-group {
+    display: flex;
+    flex-direction: column;
 }
 
 .cert-item {
-    padding: 10px 0;
+    padding: 10px 15px; 
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
+
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 150ms ease-in-out, border 150ms ease-in-out;
+    margin-bottom: 5px; 
 }
 
-label {
-    margin-left: 10px;
+.cert-item:hover {
+    background-color: #f0f4f7;
+}
+
+.cert-item label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--gray-700);
+    margin-left: 0; 
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.custom-indicator {
+    display: block; /* Use block or inline-block */
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--gray-700); /* Darker border when unchecked */
+    border-radius: 50%; /* Make it circular */
+    margin-left: 10px; /* Space it away from the text */
+    flex-shrink: 0; 
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked + .cert-label {
+    /* Use the colors you defined in your :root block */
+    background-color: var(--blue-100); 
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); 
+    border: 2px solid var(--highlight-green);
+}
+
+/* Style the Indicator dot when the checkbox is checked */
+/* The CSS selector: [The checked input] + [The adjacent label] [The indicator element] */
+input[type="checkbox"]:checked + .cert-label .custom-indicator {
+    background-color: var(--highlight-green); /* Solid green background */
+    border-color: var(--highlight-green); /* Solid green border */
+    position: relative;
+}
+
+/* Create the actual white checkmark icon inside the green circle */
+input[type="checkbox"]:checked + .cert-label .custom-indicator::after {
+    content: '';
+    position: absolute;
+    /* Positioning and sizing to create a 45-degree rotated checkmark */
+    top: 5px; 
+    left: 8px; 
+    width: 4px; 
+    height: 10px; 
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg); 
+}
+
+.cert-price {
+    font-weight: bold;
+    color: var(--primary-btn-hover); 
+    background-color: rgba(33, 113, 181, 0.1); 
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.9em;
+}
+
+.cert-selected {
+    background-color: var(--blue-100);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); 
+    border: 2px solid #16a34a;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 20px;
 }
 
 #calculate-btn {
-    /* Styles the main calculation button */
     display: block;
     width: 100%;
     padding: 10px;
-    margin-top: 20px;
-    background-color: #2171b5;
+    background-color: var(--primary-btn);
     color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
+    font-weight: bold; 
+    transition: background-color 150ms ease-in-out;
+    text-transform: uppercase;
 }
 
 #calculate-btn:hover {
-    background-color: #08519c;
+    background-color: var(--primary-btn-hover);
 }
 
+.clear-button-container {
+    width: 100%; 
+}
+
+#clear-btn {
+    display: block;
+    width: 100%;
+    max-width: 250px; 
+    
+    margin: 0 auto; 
+    
+    padding: 8px 15px; 
+    background-color: var(--red-500);
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 150ms ease-in-out;
+    text-transform: uppercase;
+    font-size: 0.9em; 
+    border: none;
+    cursor: pointer;
+}
+
+#clear-btn:hover {
+    background-color: var(--red-600);
+}
+
+
 #total-cost-container {
-    /* Styles the box where the result appears */
     margin-top: 30px;
     padding: 15px;
-    background-color: #c8dbef;
-    border: 2px solid #deebf7;
+    background-color: var(--main-bg);
+    border: 2px solid var(--result-border);
     border-radius: 4px;
     text-align: center;
+}
+
+#total-cost-container h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    border: none;
+    padding: 0;
+    margin-top: 0;
 }
 
 #total-cost {
     font-size: 2em;
     font-weight: bold;
-    color: #08306b;
+    color: var(--result-text);
     display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
 }
